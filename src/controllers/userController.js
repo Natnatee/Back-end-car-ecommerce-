@@ -2,11 +2,11 @@ import userService from "../services/userService.js";
 import { hashPassword, comparePassword } from "../utils/hash.js";
 import { sign, verify } from "../utils/token.js";
 import BadRequestError from "../error/BadRequestError.js";
-import formData from "form-data";
+import FormData from "form-data";
 import Mailgun from "mailgun.js";
 import User from "../models/user.js";
 
-const mailgun = new Mailgun(formData);
+const mailgun = new Mailgun(FormData);
 const mg = mailgun.client({
   username: "api",
   key: process.env.MAILGUN_API_KEY,
